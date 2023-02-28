@@ -1,0 +1,19 @@
+{
+    "name": "balink/balink-pay",
+    "description": "payment gateway for balink.io",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Balink\\BalinkPay\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mohammad Mohammadi",
+            "email": "imohammadd@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
