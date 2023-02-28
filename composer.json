@@ -8,6 +8,13 @@
             "Balink\\BalinkPay\\": "src/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Balink\\BalinkPay\\BalinkPayServiceProvider"
+            ]
+        }
+    },
     "authors": [
         {
             "name": "Mohammad Mohammadi",
@@ -15,5 +22,7 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require-dev": {
+        "orchestra/testbench": "8.x-dev"
+    }
 }
