@@ -14,7 +14,7 @@ class CreateTransactionsTable extends Migration {
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->morphs('payable');
+            $table->morphs('payable')->nullable();
             $table->string('amount');
             $table->string('merchent');
             $table->string('authority');
