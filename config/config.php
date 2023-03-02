@@ -1,10 +1,10 @@
 <?php
 
 return [
-    "debugging"     =>  env("APP_DEBUG", true),
+    "debug"         =>  env("APP_DEBUG", true),
 
-    "drivers"       =>  [
-        "zarnpal"   =>  [
+    "driver"        =>  [
+        "zarinpal"   =>  [
             "main"      =>  [
                 "request"   =>  "https://api.zarinpal.com/pg/v4/payment/request.json",
                 "verify"    =>  "https://api.zarinpal.com/pg/v4/payment/verify.json",
