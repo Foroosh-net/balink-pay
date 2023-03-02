@@ -11,9 +11,9 @@ interface DriverInterface {
 
     public function callback($callback);
 
-    public function prepare();
+    public function request();
 
-    public function pay();
+    public function redirect();
 
     public function verify($refId, $amount);
 }

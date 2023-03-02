@@ -33,14 +33,13 @@ class BaseDriver implements DriverInterface {
         return $this;
     }
 
-    public function prepare()
+    public function request()
     {
         
     }
 
-    public function pay()
-    {
-        
+    public function redirect() {
+
     }
 
     public function verify($refId, $amount)
