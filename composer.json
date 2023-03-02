@@ -12,7 +12,10 @@
         "laravel": {
             "providers": [
                 "Balink\\BalinkPay\\BalinkPayServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "BalinkPay": "Balink\\BalinkPay\\Facades\\BalinkPay"
+            }
         }
     },
     "authors": [
@@ -21,7 +24,7 @@
             "email": "imohammadd@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require-dev": {
         "orchestra/testbench": "8.x-dev"
     }
