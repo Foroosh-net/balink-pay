@@ -7,7 +7,7 @@ class BaseDriver implements DriverInterface {
     protected $amount;
     protected $description;
     protected $callback;
-    protected $refId;
+    protected $authority;
     
     public function merchant($merchant)
     {
@@ -33,6 +33,12 @@ class BaseDriver implements DriverInterface {
         return $this;
     }
 
+    public function authority($authority)
+    {
+        $this->authority = $authority;
+        return $this;
+    }
+
     public function request()
     {
         
@@ -42,7 +48,7 @@ class BaseDriver implements DriverInterface {
 
     }
 
-    public function verify($refId, $amount)
+    public function verify()
     {
         
     }

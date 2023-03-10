@@ -5,10 +5,10 @@ namespace Balink\BalinkPay\Drivers\Zarinpal;
 use Balink\BalinkPay\Drivers\BaseDriver;
 use Exception;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Redirect;
 
 class Zarinpal extends BaseDriver {
     private $urls;
-    private $authority;
 
     public function __construct()
     {
@@ -37,10 +37,26 @@ class Zarinpal extends BaseDriver {
 
                 throw new Exception($errors, $response->json()['errors']['code']);
             }
-            $this->authority = $response->object()->data->authority;
+            $this->authority($response->object()->data->authority);
             return $this;
         } else {
             throw new Exception("something got wrong", 500);
         }
+    }
+
+    public function redirect()
+    {
+        return Redirect::to($this->urls['pay'] . $this->authority);
+    }
+
+    public function verify()
+    {
+        $response = Http::post($this->urls['verify'], [
+            'merchant_id'   =>  $this->merchant,
+            'amount'        =>  $this->amount,
+            'authority'     =>  $this->authority
+        ]);
+
+        return $response->json();
     }
 }
