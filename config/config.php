@@ -15,6 +15,11 @@ return [
                 "verify"    =>  "https://sandbox.zarinpal.com/pg/v4/payment/verify.json",
                 "pay"       =>  "https://sandbox.zarinpal.com/pg/StartPay/"
             ]
+        ],
+        'aqayepardakht'    => [
+            'request'       =>  'https://panel.aqayepardakht.ir/api/v2/create',
+            'verify'        =>  'https://panel.aqayepardakht.ir/api/v2/verify',
+            'pay'           =>  'https://panel.aqayepardakht.ir/startpay/'
         ]
     ]
 ];

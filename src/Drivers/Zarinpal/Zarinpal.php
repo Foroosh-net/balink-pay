@@ -49,6 +49,10 @@ class Zarinpal extends BaseDriver {
         return Redirect::to($this->urls['pay'] . $this->authority);
     }
 
+    public function getPaymentURL() : String {
+        return $this->urls['pay'] . $this->authority;
+    }
+
     public function verify()
     {
         $response = Http::post($this->urls['verify'], [
@@ -57,6 +61,26 @@ class Zarinpal extends BaseDriver {
             'authority'     =>  $this->authority
         ]);
 
-        return $response->json();
+        if($response->status() == 200) {
+            return $response->json()['data'];
+        }
+
+        switch($response->json()['errors']['code']) {
+            case -50:
+                throw new Exception("مبلغ پرداخت شده با مقدار مبلغ در وریفای متفاوت است");
+                break;
+            case -51:
+                throw new Exception("پرداخت ناموفق");
+                break;
+            case -52:
+                throw new Exception("خطای غیر منتظره");
+                break;
+            case -53:
+                throw new Exception("کد رهگیری پرداخت برای این فروشنده نیست");
+                break;
+            case -54:
+                throw new Exception("کد رهگیری نامعتبر است");
+                break;
+        }
     }
 }
