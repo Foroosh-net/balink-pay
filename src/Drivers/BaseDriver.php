@@ -39,6 +39,10 @@ class BaseDriver implements DriverInterface {
         return $this;
     }
 
+    public function getAuthority() {
+        return $this->authority;
+    }
+
     public function request()
     {
         
